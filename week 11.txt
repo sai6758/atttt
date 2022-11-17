@@ -1,0 +1,54 @@
+package cmrit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class exp11{
+	public static void main(String[] args) throws InterruptedException{
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\student\\Downloads\\chromedriver_win32 (7)\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.google.com/");
+		Thread.sleep(2000);
+		WebElement search = driver.findElement(By.name("q"));
+		search.sendKeys("myntra");
+		search.sendKeys(Keys.ENTER);
+		Thread.sleep(2000);
+		WebElement mlink = driver.findElement(By.xpath("//h3[normalize-space() = 'Myntra: Online Shopping for Women, Men, Kids Fashion ...']"));
+		mlink.click();
+		
+		WebElement profileHyperLink = driver.findElement(By.xpath("(//span[normalize-space()='Profile'])"));
+		profileHyperLink.click();
+		
+		WebElement loginBtn = driver.findElement(By.xpath("(//a[normalize-space()='login / Signup'])"));
+		loginBtn.click();
+		
+		WebElement mobileNo = driver.findElement(By.xpath("(//input[@type='tel'])"));
+		mobileNo.sendKeys("9515328816");
+	
+		WebElement continueBtn = driver.findElement(By.xpath("(//div[@class='submitBottomOption'])"));
+		continueBtn.click();
+		Thread.sleep(35000);
+		continueBtn.click();
+		Thread.sleep(1000);
+		
+		WebElement otp01 = driver.findElement(By.xpath("(//input[@name='otp0'])"));
+		otp01.sendKeys("1");
+		
+		WebElement otp02 = driver.findElement(By.xpath("(//input[@name='otp1'])"));
+		otp02.sendKeys("2");
+		
+		WebElement otp03 = driver.findElement(By.xpath("(//input[@name='otp2'])"));
+		otp03.sendKeys("3");
+		
+		WebElement otp04 = driver.findElement(By.xpath("(//input[@name='otp3'])"));
+		otp04.sendKeys("4");
+		
+		driver.close();
+
+		
+	}
+}
